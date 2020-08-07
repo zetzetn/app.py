@@ -15,18 +15,19 @@ def index():
 
 # アプリケーションのルート
 @app.route('/hello')
+@app.route('/something')
 
 # 返すレスポンスを設定
 def hello():
     return "<h2>hello world</h2>"
 
 # アプリケーションのルート
-@app.route('/post/<post_name>')
+@app.route('/post/<int:post_id>/<post_name>')
 
 # 返すレスポンスを設定
-def show_post(post_name):
-    print(type(post_name))
-    return 'Post {}' .format(post_name)
+def show_post(post_id,post_name):
+    # print(type(post_id))
+    return '{}: {}' .format(post_name,post_id)
 
 if __name__ == '__main__':
     app.run() 
